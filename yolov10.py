@@ -101,14 +101,14 @@ class ObjectDetection:
                     sound_file = f'amthanh/{name}.mp3'
                     play_sound(sound_file)
 
-        # for label, box in zip(emotion_result, faceBoxes):
-        #     x_min, y_min, x_max, y_max = box
-        #     org = (x_min, y_min - 10)
-        #     text = f'{label}'
-        #     cv2.putText(frame, text, org, font,
-        #                 font_scale, color, thickness)
-        #     cv2.rectangle(frame, (x_min, y_min),
-        #                   (x_max, y_max), (0, 255, 0), 2)
+        for label, box in zip(emotion_result, faceBoxes):
+            x_min, y_min, x_max, y_max = box
+            org = (x_min, y_min - 10)
+            text = f'{label}'
+            cv2.putText(frame, text, org, font,
+                        font_scale, color, thickness)
+            cv2.rectangle(frame, (x_min, y_min),
+                          (x_max, y_max), (0, 255, 0), 2)
         return frame
 
     def __call__(self, frame):
