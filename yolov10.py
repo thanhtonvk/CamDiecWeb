@@ -45,18 +45,6 @@ def get_person(result, image):
 class ObjectDetection:
     def __init__(self):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.model = self.load_model()
-        self.CLASS_NAMES_DICT = self.model.model.names
-
-    def load_model(self):
-        # tải mô hình YOLOv8n đã được huấn luyện
-        model = YOLO("models/yolov8n.pt")
-        model.to(self.device)
-        return model
-
-    def predict(self, frame):
-        results = self.model(frame, conf=0.4, verbose=False)
-        return results
 
     def plot_bboxes(self, results, frame):
         faceBoxes = faceDetector.detect(frame)
@@ -124,8 +112,6 @@ class ObjectDetection:
         return frame
 
     def __call__(self, frame):
-        results = self.predict(frame)
-        frame = self.plot_bboxes(results, frame)
         return frame
 
 
