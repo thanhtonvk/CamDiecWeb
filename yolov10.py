@@ -67,7 +67,10 @@ class ObjectDetection:
                 image = frame[y_min:y_max, x_min:x_max]
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
                 label, score = emotionRecognition.predict(image)
-                emotion_result.append(label)
+                if score > 0.9:
+                    emotion_result.append(label)
+                else:
+                    emotion_result.append('tu nhien')
 
         name, box = predictDeaf(frame)
         if box is not None:
