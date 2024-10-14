@@ -46,7 +46,7 @@ class ObjectDetection:
     def __init__(self):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-    def plot_bboxes(self, results, frame):
+    def plot_bboxes(self, frame):
         faceBoxes = faceDetector.detect(frame)
         emotion_result = []
         if len(faceBoxes) > 0:
@@ -112,6 +112,7 @@ class ObjectDetection:
         return frame
 
     def __call__(self, frame):
+        frame  = self.plot_bboxes(frame)
         return frame
 
 
