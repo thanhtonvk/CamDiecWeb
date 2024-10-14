@@ -36,4 +36,4 @@ class EmotionRecognition:
         predictions = self.model(image_trans)
         predicted_label = torch.argmax(predictions, dim=1).item()
 
-        return unidecode(labels[predicted_label]),f"{int(predictions[0][predicted_label]*100)}%"
+        return unidecode(labels[predicted_label]),predictions[0][predicted_label]
