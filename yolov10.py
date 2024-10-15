@@ -70,6 +70,7 @@ class ObjectDetection:
             cv2.putText(frame, text, (x_min, y_min-10), font,
                         font_scale, color, thickness, cv2.LINE_AA)
             if True:
+                name = name.replace('_',' ')
                 if name == 'so' and name in emotion_result:
                     sound_file = f'amthanh/{name}.mp3'
                     play_sound(sound_file)
@@ -97,7 +98,34 @@ class ObjectDetection:
                 if name == 'xin chao' and 'tu nhien' in emotion_result:
                     sound_file = f'amthanh/{name}.mp3'
                     play_sound(sound_file)
-                if name == 'tam biet' and 'buồn' in emotion_result:
+                if name == 'tam biet' and 'buon' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'nho' and 'buon' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'hieu' and 'tu nhien' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'to mo' and 'bat ngo' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'chi gai' and 'vui ve' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'anh trai' and 'tu nhien' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'me' and 'vui ve' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'nha' and 'tu nhien' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'yeu' and 'vui ve' in emotion_result:
+                    sound_file = f'amthanh/{name}.mp3'
+                    play_sound(sound_file)
+                if name == 'biet' and 'tu nhien' in emotion_result:
                     sound_file = f'amthanh/{name}.mp3'
                     play_sound(sound_file)
 
