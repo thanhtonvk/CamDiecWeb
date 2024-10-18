@@ -5,6 +5,9 @@ from yolov8 import Camera, ObjectDetection
 import time
 import cv2
 
+
+
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
@@ -35,10 +38,10 @@ def upload():
         source = 'uploaded_video'
         app.config['UPLOADED_VIDEO_PATH'] = file_path
         return redirect(url_for('index'))
-
+ngon_ngu = ['vi','en','cn']
 def gen(camera):
     """Hàm generator phát video."""
-    detector = ObjectDetection()
+    detector = ObjectDetection(ngonngu='vi')
     frame_count = 0
     start_time = time.time()
 

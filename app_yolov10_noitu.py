@@ -1,7 +1,7 @@
 from importlib import import_module
 import os
 from flask import Flask, render_template, Response, request, redirect, url_for
-from yolov10 import Camera, ObjectDetection
+from yolov10_noitu import Camera, ObjectDetection
 import time
 import cv2
 
