@@ -15,7 +15,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 font_scale = 1
 color = (0, 255, 0)  # Màu xanh lá cây
 thickness = 2
-
+pygame.mixer.init()
 
 def play_sounds_in_sequence(sounds):
     for sound in sounds:
