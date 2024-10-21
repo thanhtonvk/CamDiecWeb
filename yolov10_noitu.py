@@ -17,6 +17,12 @@ color = (0, 255, 0)  # Màu xanh lá cây
 thickness = 2
 pygame.mixer.init()
 
+
+list_noi_tu = [
+    ['anh trai', 'me', 'chi gai']
+]
+
+
 def play_sounds_in_sequence(sounds):
     for sound in sounds:
         # Load và phát âm thanh
@@ -34,6 +40,8 @@ class ObjectDetection:
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.ngonngu = ngonngu
         self.finalSound = []
+        self.list_temp = []
+        self.list_temp2 =[]
     def plot_bboxes(self, frame):
         faceBoxes = faceDetector.detect(frame)
         emotion_result = []
@@ -97,12 +105,28 @@ class ObjectDetection:
                     sound_file = f'{name}.mp3'
                 if name == 'biet' and 'tu nhien' in emotion_result:
                     sound_file = f'{name}.mp3'
-                
+
+                    
                 if sound_file:
-                    self.finalSound.append(sound_file)
+                    if len(self.finalSound)==0:
+                        for cum_tu in list_noi_tu:
+                            if name == cum_tu[0]:
+                                self.list_temp.append(cum_tu)
+                                self.finalSound.append(sound_file)
+                    if len(self.finalSound)==1:
+                        for cum_tu in self.list_temp:
+                            if name == cum_tu[1]:
+                                self.list_temp2.append(cum_tu)
+                                self.finalSound.append(sound_file)
+                    if len(self.finalSound)==2:
+                        for cum_tu in self.list_temp2:
+                            if name== cum_tu[2]:
+                                self.finalSound.append(sound_file)
                 if len(self.finalSound)==3:
                     play_sounds_in_sequence(self.finalSound)
                     self.finalSound = []
+                    self.list_temp = []
+                    self.list_temp2 =[]
 
         for label, box in zip(emotion_result, faceBoxes):
             x_min, y_min, x_max, y_max = box
