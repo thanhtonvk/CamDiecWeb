@@ -65,6 +65,7 @@ class ObjectDetection:
             text = f'{name}'
             cv2.putText(frame, text, (x_min, y_min-10), font,
                         font_scale, color, thickness, cv2.LINE_AA)
+            sound_file = ''
             if True:
                 name = name.replace('_',' ')
                 if name == 'so' and name in emotion_result:
