@@ -106,7 +106,7 @@ class ObjectDetection:
                     sound_file = f'{name}.mp3'
                 if name == 'biet' and 'tu nhien' in emotion_result:
                     sound_file = f'{name}.mp3'
-
+                sound_file = f'amthanh/{self.ngonngu}/{sound_file}'
                     
                 if sound_file:
                     if len(self.finalSound)==0:
