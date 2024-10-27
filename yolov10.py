@@ -48,12 +48,12 @@ class ObjectDetection:
         name, box = predictDeaf(frame)
         if box is not None:
             x_min, y_min, x_max, y_max = box
-            cv2.rectangle(frame, (x_min, y_min),
-                          (x_max, y_max), (255, 0, 0), 2)
+            # cv2.rectangle(frame, (x_min, y_min),
+            #               (x_max, y_max), (255, 0, 0), 2)
             # Hiển thị cả class 'tam biet'
             text = f'{name}'
-            cv2.putText(frame, text, (x_min, y_min-10), font,
-                        font_scale, color, thickness, cv2.LINE_AA)
+            # cv2.putText(frame, text, (x_min, y_min-10), font,
+            #             font_scale, color, thickness, cv2.LINE_AA)
             if True:
                 name = name.replace('_',' ')
                 if name == 'so' and name in emotion_result:
@@ -101,10 +101,10 @@ class ObjectDetection:
             x_min, y_min, x_max, y_max = box
             org = (x_min, y_min - 10)
             text = f'{label}'
-            cv2.putText(frame, text, org, font,
-                        font_scale, color, thickness)
-            cv2.rectangle(frame, (x_min, y_min),
-                          (x_max, y_max), (0, 255, 0), 2)
+            # cv2.putText(frame, text, org, font,
+            #             font_scale, color, thickness)
+            # cv2.rectangle(frame, (x_min, y_min),
+            #               (x_max, y_max), (0, 255, 0), 2)
         return frame
 
     def __call__(self, frame):
